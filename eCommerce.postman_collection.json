@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "0da14d57-85b8-4fd1-bc12-9804e6fd22ba",
+		"name": "eCommerce",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31092402"
+	},
+	"item": [
+		{
+			"name": "authApis",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"marwan\",\r\n    \"email\":\"abdelghanymarwan29@gmail.com\",\r\n    \"password\":\"12345678\",\r\n    \"role\":\"superAdmin\",\r\n    \"phoneNumbers\":[\"333335321\"],\r\n    \"addresses\":[\"k\",\"m\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"abdelghanymarwan29@gmail.com\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categoryApis",
+			"item": [
+				{
+					"name": "addCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc2MjY5MiwiZXhwIjoxNzA3NzY2MjkyfQ.E9C2aihj9ZJslHWFvtMTkzlzOT5HZBc7LZOt03stOVA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mobile phones",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/366362339_827197362111053_7771028901010192916_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateCategory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzE1NTAzOSwiZXhwIjoxNzA3MTU4NjM5fQ.apzq4HeG4lLXus4hMT_Y3DPD8_d7aWqPYFj925HZbYI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mobile phones 2",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/saka.jpg"
+								},
+								{
+									"key": "oldPublicId",
+									"value": "eCommerce/categories/hj1k/c5pcpisxk3m0tttknurm",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/category/65c11e0dfc29ae0bf8539933",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"65c11e0dfc29ae0bf8539933"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc2MjY5MiwiZXhwIjoxNzA3NzY2MjkyfQ.E9C2aihj9ZJslHWFvtMTkzlzOT5HZBc7LZOt03stOVA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/category/65ca6c1513282ec0b1b90556",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								"65ca6c1513282ec0b1b90556"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllCategories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "sub-category-apis",
+			"item": [
+				{
+					"name": "addSubCategory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc2MjY5MiwiZXhwIjoxNzA3NzY2MjkyfQ.E9C2aihj9ZJslHWFvtMTkzlzOT5HZBc7LZOt03stOVA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "mobile",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/366362339_827197362111053_7771028901010192916_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/sub-category/65ca6c6eb238c314cabeed1c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sub-category",
+								"65ca6c6eb238c314cabeed1c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateSubCategory",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzE2MjQ5NSwiZXhwIjoxNzA3MTY2MDk1fQ.qW3OfcUpxkMQaHtfAxociYs58RpFOxkiq65_anUCFXQ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "naskbdkab",
+									"type": "text"
+								},
+								{
+									"key": "oldPublicId",
+									"value": "eCommerce/categories/hj1k/2527/x5ikandrfbd04wpttxfi",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/saka.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/sub-category/65c13d56f37db716206b1954",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sub-category",
+								"65c13d56f37db716206b1954"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletesubCategory",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc2MjY5MiwiZXhwIjoxNzA3NzY2MjkyfQ.E9C2aihj9ZJslHWFvtMTkzlzOT5HZBc7LZOt03stOVA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/sub-category/65c13d56f37db716206b1954",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sub-category",
+								"65c13d56f37db716206b1954"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllsubCategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/sub-category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"sub-category",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "brandApis",
+			"item": [
+				{
+					"name": "addBrand",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc2MjY5MiwiZXhwIjoxNzA3NzY2MjkyfQ.E9C2aihj9ZJslHWFvtMTkzlzOT5HZBc7LZOt03stOVA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "rolex",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/366362339_827197362111053_7771028901010192916_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/brand/?categoryId=65ca6c6eb238c314cabeed1c&subCategoryId=65c13d56f37db716206b1954",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"brand",
+								""
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "65ca6c6eb238c314cabeed1c"
+								},
+								{
+									"key": "subCategoryId",
+									"value": "65c13d56f37db716206b1954"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateBrand",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc3MjQ2OSwiZXhwIjoxNzA3Nzc2MDY5fQ.Tt0xT-lj9X-kVlW_Yu0lMJ_2flMOBZf68hVY6fvT-FY",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "casio",
+									"type": "text"
+								},
+								{
+									"key": "oldPublicId",
+									"value": "eCommerce/categories/akah/a39k/oy32vwztt57oxjenaij7/brands/782g/teluwc3x6ncx4xcyzuyc",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/368183636_670326111783870_7768598567087634185_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/brand/65ca6dfdd938f4e40118bd2d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"brand",
+								"65ca6dfdd938f4e40118bd2d"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteBrand",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc3NDMyOSwiZXhwIjoxNzA3Nzc3OTI5fQ.XR_ppmQ2kSyW4rDY39spYr6MmBu6-G29CCMDDzz_XHo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/brand/65ca6dfdd938f4e40118bd2d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"brand",
+								"65ca6dfdd938f4e40118bd2d"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productApis",
+			"item": [
+				{
+					"name": "addProduct",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzc2MjY5MiwiZXhwIjoxNzA3NzY2MjkyfQ.E9C2aihj9ZJslHWFvtMTkzlzOT5HZBc7LZOt03stOVA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/368183636_670326111783870_7768598567087634185_n.jpg"
+								},
+								{
+									"key": "title",
+									"value": "s 2",
+									"type": "text"
+								},
+								{
+									"key": "specs",
+									"value": "{\"size\":[10,20,30],\"colors\":[\"red\",\"green\"]}",
+									"type": "text"
+								},
+								{
+									"key": "basePrice",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "stock",
+									"value": "90",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Tweety/Pictures/368183636_670326111783870_7768598567087634185_n.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/product/?categoryId=65ca6c6eb238c314cabeed1c&subCategoryId=65ca6d727398d9a57cddfe4f&brandId=65ca6dfdd938f4e40118bd2d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"product",
+								""
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "65ca6c6eb238c314cabeed1c"
+								},
+								{
+									"key": "subCategoryId",
+									"value": "65ca6d727398d9a57cddfe4f"
+								},
+								{
+									"key": "brandId",
+									"value": "65ca6dfdd938f4e40118bd2d"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "userApis",
+			"item": [
+				{
+					"name": "updateUserProfile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "accesstoken",
+								"value": "xDfeDpeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiZGVsZ2hhbnltYXJ3YW4yOUBnbWFpbC5jb20iLCJ1c2VybmFtZSI6Im1hcndhbiIsIl9pZCI6IjY1YzEwZmYxYmVhOTExYWI0YWFiMjJiZiIsImlhdCI6MTcwNzgzMTY4MSwiZXhwIjoxNzA3ODM1MjgxfQ.rU4RUvw9XqoUAHhzRr-xn_j0lV-2VP-cYAVGmy966U8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"elhosinymarwan29@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
