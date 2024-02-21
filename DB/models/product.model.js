@@ -5,7 +5,7 @@ const productSchema = new mongoose.Schema({
     title: { type: String, required: true, trim: true },
     desc: String,
     slug: { type: String, required: true, trim: true },  /** @todo make the slug in lowercase */
-    folderId: { type: String, required: true, unique: true },
+    folderId: { type: String, required: true , unique: true},
 
 
     /** Number */
@@ -18,7 +18,7 @@ const productSchema = new mongoose.Schema({
     /** Arrays */
     images: [{
         secure_url: { type: String, required: true },
-        public_id: { type: String, required: true, unique: true }
+        public_id: { type: String, required: true ,unique: true}
     }],
 
     /** Objects(Map)*/

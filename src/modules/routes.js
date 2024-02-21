@@ -4,6 +4,7 @@ import subCategoryRouter from "./sub-category/sub-category.routes.js";
 import brandRouter from "./brand/brand.routes.js";
 import productRouter from "./product/product.routes.js";
 import userRouter from "./user/user.routes.js";
+import cartRouter from "./cart/cart.routes.js";
 
 export {
     authRouter,
@@ -11,5 +12,6 @@ export {
     subCategoryRouter,
     brandRouter,
     productRouter,
-    userRouter
+    userRouter,
+    cartRouter
 }

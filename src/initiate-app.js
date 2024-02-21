@@ -21,6 +21,7 @@ app.use('/sub-category',routes.subCategoryRouter)
 app.use('/brand',routes.brandRouter)
 app.use('/product',routes.productRouter)
 app.use('/user',routes.userRouter)
+app.use('/cart',routes.cartRouter)
 
 
 app.use(globalResponse,rollBackUploadedFiles,rollbackSavedFiles)
