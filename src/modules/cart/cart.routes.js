@@ -13,7 +13,7 @@ import { auth } from "../../middlewares/auth.middleware.js"
 const router = Router()
 
 router.post('/',auth([systemRoles.USER]), expressAsyncHandler(cc.addToCart))
-
+router.patch('/',auth([systemRoles.USER]),expressAsyncHandler(cc.removeFromCart));
 
 
 

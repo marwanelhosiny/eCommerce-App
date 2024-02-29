@@ -70,4 +70,28 @@ export const addToCart = async (req, res, next) => {
     };
 
 
+//===================================================== remove product from cart==========================//
 
+
+export const removeFromCart = async (req, res, next) => {
+    //1- destructing the required data from request
+    const { _id } = req.authUser
+    const {productId} = req.query
+
+    //2- checking if user has a cart and it contains the product
+    const cart = await Cart.findOne({userId:_id,'products.productId':productId})
+    if(!cart){return next(new Error('cart does not exist',{cause:400}))}
+
+    //3-removing product from cart
+    cart.products = cart.products.filter(p => p.productId.toString()!== productId)
+    cart.subTotal = cart.products.reduce((prevValue,currValue)=>{return prevValue + currValue.finalPrice},0)
+    
+    //4-deleting cart if empty
+    if(cart.products.length === 0){
+        await Cart.findOneAndDelete({userId:_id})
+        return res.status(200).json({message:"empty cart deleted",cart})
+    }
+    await cart.save()
+
+    return res.status(200).json({message:"product removed from cart",cart})
+}

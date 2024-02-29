@@ -3,9 +3,10 @@ import User from "../../DB/models/user.model.js"
 import { systemRoles } from "../utils/system-roles.js"
 
 //==================================================authentication middlleware========================================//
-export const auth=(accessRoles=[systemRoles.SUPERADMIN,systemRoles.ADMIN,systemRoles.USER])=>{
+export const auth=(accessRoles=[systemRoles.SUPERADMIN,systemRoles.ADMIN,systemRoles.USER,systemRoles.DELIEVER])=>{
     return async(req,res,next)=>{
         try{const{accesstoken}=req.headers
+        console.log(accessRoles)
         if(!accesstoken){return next(new Error('missing access token',{cause:400}))}
 
         const prefix= accesstoken.startsWith(process.env.ACCESSTOKEN_PREFIX)
