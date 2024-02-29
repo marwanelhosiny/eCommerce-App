@@ -22,8 +22,9 @@ export const signUp=async(req,res,next)=>{
 
     //send verification mail
     const usertoken = jwt.sign({email},process.env.USERTOKEN_SECRET_KEY,{expiresIn:'2m'})
+
     const message = `<h1>hello</h1>
-    <a href="${req.protocol}://${req.headers.Host}/user/verify-email/?usertoken=${usertoken}">verify your email</a>`
+    <a href="${req.protocol}://${req.headers.host}/user/verify-email/?usertoken=${usertoken}">verify your email</a>`
     const confirmMail = sendEmailService({to:email,message})
 
     return res.status(201).json({message:'user registered successfully'})
