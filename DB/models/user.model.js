@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import { systemRoles } from "../../src/utils/system-roles.js";
+import bcrypt from "bcryptjs"
 
 const userSchema = new Schema({
     username: {
@@ -14,13 +15,12 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        tirm: true,
-        lowercase: true
+        tirm: true
     },
     password: {
         type: String,
         required: true,
-        minlength: 8,
+        minlength: 6,
     },
     phoneNumbers: [{
         type: String,
@@ -44,11 +44,23 @@ const userSchema = new Schema({
         min: 18,
         max: 100
     },
-    isLoggedIn: {
+    forgetCode:{
+        type: String,
+    },
+    isDeleted:{
         type: Boolean,
         default: false
+    },
+    token:{
+        type: String
     }
 }, { timestamps: true })
+
+userSchema.pre('save', function(){
+    console.log(this.password)
+    this.password = bcrypt.hashSync(this.password, +process.env.SALT_ROUNDS);
+    console.log(this.password)
+})
 
 const User = model('User', userSchema)
 export default User

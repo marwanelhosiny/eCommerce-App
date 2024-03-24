@@ -1,0 +1,22 @@
+version: "25.0.3"
+
+services:
+    nodejs:
+      image: img-v1.nodejs
+      container_name: ecomm-container-1
+      build: .
+      ports:
+        - "3300:3000"
+      environment:
+        - CONNECTION_URL_HOST=mongodb+srv://elhosinymarwan29:0162105511@maro-1.udxzsgv.mongodb.net/eCommerce
+    mongodb:
+     image: mongo
+     container_name: mongo-container
+     ports:
+      - "27017:27017"
+     volumes:
+      - ./mongodb-data:/data/db 
+volumes:
+    mongodb-data:
+     driver: local
+

@@ -6,6 +6,7 @@ import generateUniequeString from "../../utils/generateUniqueString.js";
 import cloudinaryConnection from "../../utils/cloudinary.js";
 import Product from "../../../DB/models/product.model.js";
 import { systemRoles } from "../../utils/system-roles.js";
+import { ApiFeatures } from "../../utils/api-features.js";
 
 
 
@@ -140,3 +141,5 @@ export const deleteBrand = async(req,res,next)=>{
     res.status(200).json({message:'brand deleted successfully',deleteBrand})
 
 }
+
+

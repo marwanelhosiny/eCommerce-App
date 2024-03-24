@@ -10,9 +10,11 @@ const router = Router()
 
 
 router.post('/deliever/:orderId',auth([systemRoles.DELIEVER]),expressAsyncHandler(oc.delieverOrder))
-router.post('/:productId/:quantity',auth([systemRoles.USER]),expressAsyncHandler(oc.creatOrder))
+router.post('/',auth([systemRoles.USER]),expressAsyncHandler(oc.creatOrder))
 router.put('/',auth([systemRoles.USER]),expressAsyncHandler(oc.convertCartToOrder))
-
+router.post('/payment',auth(),expressAsyncHandler(oc.payWithStripe))
+router.post('/webhook',expressAsyncHandler(oc.stripeWebHookLocal))
+router.post('/refund',auth([systemRoles.SUPERADMIN]),expressAsyncHandler(oc.paymentRefund))
 
 
 

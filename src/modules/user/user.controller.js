@@ -6,8 +6,6 @@ import  jwt  from "jsonwebtoken";
 
 
 
-
-
 //============================================= update user profile=================================//
 
 export const updateUserProfile = async (req, res, next) => {
@@ -78,7 +76,7 @@ export const deleteUser = async (req, res, next) => {
     const { _id } = req.authUser;
 
     //2- delete user
-    const deletedUser = await User.findByIdAndDelete(_id);
+    const deletedUser = await User.findByIdAndUpdate({_id},{isDeleted: true});
     if (!deletedUser) {
         return next(new Error('something went wrong', { cause: 400 }));
     }

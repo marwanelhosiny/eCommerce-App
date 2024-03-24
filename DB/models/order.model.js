@@ -25,7 +25,7 @@ const orderSchema = new mongoose.Schema({
     totalPrice:{type: Number, required: true}, // shipping price - coupon is exits , not  = shipping price
 
     paymentMethod:{type: String, enum:['Cash' ,'Stripe','Paymob'], required: true},
-    orderStatus:{type: String , enum:['Pending' ,'Paid','Delivered','Placed','Cancelled'], required: true , default: 'Pending'},
+    orderStatus:{type: String , enum:['Pending' ,'Paid','Delivered','Placed','Cancelled','Refunded'], required: true , default: 'Pending'},
 
     isPaid:{type: Boolean, required: true, default: false},
     paidAt:{type: String},
@@ -37,6 +37,7 @@ const orderSchema = new mongoose.Schema({
     
     cancelledAt:{type: String},
     cancelledBy:{type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+    payment_intent:{type:String}
 
 },{timestamps: true});
 

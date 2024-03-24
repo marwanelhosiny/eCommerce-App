@@ -22,3 +22,9 @@ export const deletecategorySchema={
         categoryId:Joi.string().custom(objectidValidation)
     })
 }
+
+export const getcategorySchema={
+    params:Joi.object({
+        categoryId:Joi.string().custom(objectidValidation)
+    })
+}

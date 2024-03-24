@@ -15,7 +15,7 @@ const couponSchema = new mongoose.Schema({
     couponStatus:{
         type: String,
         default: 'valid',
-        enum: ['valid','expired'],
+        enum: ['valid', 'expired','disabled'],
     },
     fromDate:{
         type: String,
@@ -42,7 +42,22 @@ const couponSchema = new mongoose.Schema({
     updatedBy:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
+    },
+    disabledBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    disabledAt:{
+        type: String,
+    },
+    enabledBy:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+    },
+    enabledAt:{
+        type: String,
     }
+    
 
 }, { timestamps: true });
 

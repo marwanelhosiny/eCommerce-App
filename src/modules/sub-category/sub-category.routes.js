@@ -7,14 +7,15 @@ import { multermiddleware } from "../../middlewares/multerMiddleware.js";
 import { allowedExtensions } from "../../utils/allowedExtensions.js";
 import { systemRoles } from "../../utils/system-roles.js";
 import { validationFunction } from "../../middlewares/validation.middleware.js";
-import { addsubcategorySchema, deletesubcategorySchema, updatesubcategorySchema } from "./sub-category.schemas.js";
+import { addsubcategorySchema, deletesubcategorySchema, getsubcategorySchema, updatesubcategorySchema } from "./sub-category.schemas.js";
 
 const router = Router()
 
-router.post('/:categoryId',multermiddleware(allowedExtensions.Image).single('image'),validationFunction(addsubcategorySchema),auth(systemRoles.SUPERADMIN),expressAsyncHandler(sc.addSubCategory))
-router.put('/:subCategoryId',multermiddleware(allowedExtensions.Image).single('image'),validationFunction(updatesubcategorySchema),auth(systemRoles.SUPERADMIN),expressAsyncHandler(sc.updateSubCategory))
-router.delete('/:subCategoryId',validationFunction(deletesubcategorySchema),auth(systemRoles.SUPERADMIN),expressAsyncHandler(sc.deleteSubCategory))
-router.get('/',expressAsyncHandler(sc.getAllsubCategories))
+router.post('/:categoryId', multermiddleware(allowedExtensions.Image).single('image'), validationFunction(addsubcategorySchema), auth(systemRoles.SUPERADMIN), expressAsyncHandler(sc.addSubCategory))
+router.put('/:subCategoryId', multermiddleware(allowedExtensions.Image).single('image'), validationFunction(updatesubcategorySchema), auth(systemRoles.SUPERADMIN), expressAsyncHandler(sc.updateSubCategory))
+router.delete('/:subCategoryId', validationFunction(deletesubcategorySchema), auth(systemRoles.SUPERADMIN), expressAsyncHandler(sc.deleteSubCategory))
+router.get('/', expressAsyncHandler(sc.getAllsubCategories))
+router.get('/oneSubCategory/:subCategoryId', validationFunction(getsubcategorySchema), expressAsyncHandler(sc.getSubCategory))
 
 
 

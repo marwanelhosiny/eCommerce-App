@@ -25,3 +25,9 @@ export const deletesubcategorySchema={
         subCategoryId:Joi.string().custom(objectidValidation)
     })
 }
+
+export const getsubcategorySchema ={
+    params:Joi.object({
+        subCategoryId:Joi.string().custom(objectidValidation)
+    })
+}
